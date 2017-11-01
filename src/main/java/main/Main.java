@@ -1,11 +1,10 @@
 package main;
 
-import creators.DataAirport;
+import helper.XmlHelper;
 import logic.Logic;
-import logic.RangeValue;
-import plane.Airport;
-import plane.FreighterPlane;
-import plane.PassangerPlane;
+import bean.Airport;
+import bean.FreighterPlane;
+import bean.PassengerPlane;
 
 import java.util.ArrayList;
 
@@ -13,36 +12,29 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Airport airport = Airport.getAirportInstance();
-		DataAirport imp = new DataAirport();
-		imp.create();
-		ArrayList<PassangerPlane> passangers = airport.getPassangers();
+		XmlHelper xmlHelper = new XmlHelper();
+		Airport airport = xmlHelper.getAirport();
+
+		ArrayList<PassengerPlane> passengers = airport.getPassangers();
 		ArrayList<FreighterPlane> freighters = airport.getFreighters();
 		ArrayList<String> fuel;
-		ArrayList<RangeValue> rV ;
-		Logic l = new Logic();
-		fuel = l.findPlanesByFuel(passangers, freighters, 125, 150);
+		Logic logic = new Logic();
+		fuel = logic.findPlanesByFuel(passengers, freighters, 125, 200);
 
-		for(PassangerPlane p : passangers){
+		for(PassengerPlane p : passengers){
 			System.out.println(p.toString());
 		}
 		for(FreighterPlane f : freighters){
 			System.out.println(f.toString());
 		}
-		System.out.println(" Total Seats = " + l.totalSeats(passangers));
+		System.out.println(" Total Seats = " + logic.totalSeats(passengers));
 		
-		System.out.println(" Total Capasity = " +l.totalCapasity(freighters));
+		System.out.println(" Total Capacity = " + logic.totalCapacity(freighters));
 		
 		System.out.println(" Fuel Consumption :");
 
 		for(String s : fuel){
-			System.out.println(" "+ s);
-		}
-
-		System.out.println("Sort by fly range:");
-		rV = l.RangeSort(passangers, freighters);
-		for(RangeValue j : rV ){
-			System.out.println(" "+j.getName() + " " + j.getRange());
+			System.out.println(" " + s);
 		}
 	}
 }

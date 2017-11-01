@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<airport>
+<passenger>
+    <name>boing_747</name>
+    <fuelConsumption>125</fuelConsumption>
+    <flySpeed>6000</flySpeed>
+    <economyClassSeat>235</economyClassSeat>
+    <buisnessClassSeat>75</buisnessClassSeat>
+</passenger>
+<passenger>
+    <name>boing_125</name>
+    <fuelConsumption>125</fuelConsumption>
+    <flySpeed>3000</flySpeed>
+    <economyClassSeat>335</economyClassSeat>
+    <buisnessClassSeat>75</buisnessClassSeat>
+</passenger>
+<freighter>
+    <name>Freighter_2</name>
+    <fuelConsumption>200</fuelConsumption>
+    <flySpeed>6800</flySpeed>
+    <bearingCapacity>800</bearingCapacity>
+</freighter>
+<freighter>
+    <name>Freighter</name>
+    <fuelConsumption>188</fuelConsumption>
+    <flySpeed>6060</flySpeed>
+    <bearingCapacity>900</bearingCapacity>
+</freighter>
+</airport>
