@@ -9,8 +9,6 @@ public class Airport {
 	public ArrayList<PassengerPlane> passenger;
 	public ArrayList<FreighterPlane> freighter;
 
-	public static Airport instance;
-
 	public ArrayList<PassengerPlane> getPassangers() {
 		return passenger;
 	}
