@@ -1,9 +1,10 @@
 package bean;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 
 @XmlRootElement(name = "passenger")
-public class PassengerPlane extends Plane {
+public class PassengerPlane extends Plane implements Serializable {
 	private int economyClassSeat;
 	private int businessClassSeat;
 
@@ -24,6 +25,28 @@ public class PassengerPlane extends Plane {
 
 	public void setBuisnessClassSeat(int buisnessClassSeat) {
 		this.businessClassSeat = buisnessClassSeat;
+	}
+
+	@Override public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		if (!super.equals(o))
+			return false;
+
+		PassengerPlane that = (PassengerPlane) o;
+
+		if (economyClassSeat != that.economyClassSeat)
+			return false;
+		return businessClassSeat == that.businessClassSeat;
+	}
+
+	@Override public int hashCode() {
+		int result = super.hashCode();
+		result = 31 * result + economyClassSeat;
+		result = 31 * result + businessClassSeat;
+		return result;
 	}
 
 	public String toString() {

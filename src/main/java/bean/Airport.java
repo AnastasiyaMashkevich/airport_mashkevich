@@ -1,10 +1,11 @@
 package bean;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 @XmlRootElement(name = "airport")
-public class Airport {
+public class Airport implements Serializable {
 
 	public ArrayList<PassengerPlane> passenger;
 	public ArrayList<FreighterPlane> freighter;
@@ -13,8 +14,8 @@ public class Airport {
 		return passenger;
 	}
 
-	public void setPassengers(ArrayList<PassengerPlane> passangers) {
-		this.passenger = passangers;
+	public void setPassengers(ArrayList<PassengerPlane> passengers) {
+		this.passenger = passengers;
 	}
 
 	public ArrayList<FreighterPlane> getFreighters() {
